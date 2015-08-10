@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Knockout To Do List</title>
+</head>
+<body bgcolor="#EEEEDD">
+<script type='text/javascript' src='C:\Users\Owner\Documents\knockout-3.3.0.js'></script>
+<h2>To Do List For <strong data-bind="text: fullName"></strong></h2>
+<h4>Todays Date: <strong data-bind="text: date"></strong></h4>
+
+<form data-bind="submit: addTask">
+New Task:
+<input type="text" data-bind='value: taskToAdd, valueUpdate:"afterkeydown"'/>
+<button type="submit" data-bind ="enable: taskToAdd().length > 0">Add</button>
+</form>
+<p>Your Tasks:</p>
+<select multiple = "multiple" style="width: 500px; height:100px; border:1px solid black;" data-bind="options: allTasks, selectedOptions:selectedTasks"></select>
+
+<div>
+	<button data-bind="click: removeSelected, enable: selectedTasks().length >0">Remove</button>
+	<button data-bind="click: sortTasks, enable:allTasks(),length > 1">Sort</button>
+</div>
+
+<script src ='myList.js'></script>
+</body>
+</html>
